@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Fisherman\'s_Handbook_2</string>
+    <string name="fish">Рыбы</string>
+    <string name="baits">Наживки</string>
+    <string name="tackle">Снасти</string>
+    <string name="stories">Истории</string>
+</resources>
