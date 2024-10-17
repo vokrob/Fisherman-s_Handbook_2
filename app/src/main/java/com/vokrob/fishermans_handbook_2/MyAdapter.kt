@@ -1,12 +1,12 @@
 package com.vokrob.fishermans_handbook_2
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(private val listArray: ArrayList<ListItem>, private val context: Context) :
@@ -19,10 +19,16 @@ class MyAdapter(private val listArray: ArrayList<ListItem>, private val context:
 
         fun bind(listItem: ListItem, context: Context) {
             tvTitle.text = listItem.titleText
-            tvContent.text = listItem.contentText
+            var textCon = listItem.contentText.substring(0, 50) + "..."
+            tvContent.text = textCon
             im.setImageResource(listItem.image_id)
             itemView.setOnClickListener {
-                Toast.makeText(context, "Pressed : ${tvTitle.text}", Toast.LENGTH_SHORT).show()
+                val i = Intent(context, ContentActivity::class.java).apply {
+                    putExtra("title", tvTitle.text.toString())
+                    putExtra("content", listItem.contentText)
+                    putExtra("image", listItem.image_id)
+                }
+                context.startActivity(i)
             }
         }
     }

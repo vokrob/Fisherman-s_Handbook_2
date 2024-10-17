@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
+
     <group android:checkableBehavior="single">
         <item android:title="@string/fish"
             android:id="@+id/id_fish"
@@ -12,10 +13,15 @@
         <item android:title="@string/tackle"
             android:id="@+id/id_tackle"
             android:icon="@drawable/ic_tackle"/>
-        <item android:title="@string/stories"
-            android:id="@+id/id_stories"
-            android:icon="@drawable/ic_stories"/>
     </group>
+
+    <item android:title="@string/other">
+        <menu>
+            <item android:title="@string/stories"
+                android:id="@+id/id_stories"
+                android:icon="@drawable/ic_stories"/>
+        </menu>
+    </item>
 
 </menu>
 

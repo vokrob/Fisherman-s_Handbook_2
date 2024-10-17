@@ -3,8 +3,11 @@ package com.vokrob.fishermans_handbook_2
 import android.content.res.TypedArray
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
@@ -13,15 +16,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     var adapter: MyAdapter? = null
     private lateinit var navView: NavigationView
     private lateinit var rcView: RecyclerView
+    private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        getWindow().setStatusBarColor(getResources().getColor(R.color.white, this.getTheme()));
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
         navView = findViewById(R.id.nav_view)
         navView.setNavigationItemSelectedListener(this)
 
         rcView = findViewById(R.id.rcView)
+
+        drawerLayout = findViewById(R.id.drawerLayout)
 
         var list = ArrayList<ListItem>()
 
@@ -84,6 +93,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 )
             }
         }
+        drawerLayout.closeDrawer(GravityCompat.START)
+
         return true
     }
 
