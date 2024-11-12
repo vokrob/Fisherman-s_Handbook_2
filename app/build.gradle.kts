@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.vokrob.fishermans_handbook_2"
-        minSdk = 24
+        minSdk = 21
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
